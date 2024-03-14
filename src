@@ -1,0 +1,70 @@
+ // Enum defining the available models for Toyota Prius.
+enum PriusModel: String {
+    case standard = "Standard"
+    case premium = "Premium"
+}
+ 
+// Enum defining the available colors for Toyota Prius.
+enum PriusColor: String {
+    case white = "White"
+    case black = "Black"
+    case silver = "Silver"
+}
+ 
+// Enum defining the available packages for Toyota Prius.
+enum PriusPackage: String {
+    case safety = "Safety Package"
+    case technology = "Technology Package"
+    case convenience = "Convenience Package"
+}
+ 
+// Enum defining the available accessories for Toyota Prius.
+enum PriusAccessory: String {
+    case floorMats = "Floor Mats"
+    case cargoNet = "Cargo Net"
+    case wheelLocks = "Wheel Locks"
+}
+ 
+// `ToyotaPriusConfiguration` represents the configuration selected by the user for a Toyota Prius.
+class ToyotaPriusConfiguration {
+    var model: PriusModel
+    var color: PriusColor
+    var selectedPackages: [PriusPackage]
+    var selectedAccessories: [PriusAccessory]
+ 
+    init(model: PriusModel, color: PriusColor, packages: [PriusPackage], accessories: [PriusAccessory]) {
+        self.model = model
+        self.color = color
+        self.selectedPackages = packages
+        self.selectedAccessories = accessories
+    }
+ 
+    // Display the selected configuration of the Toyota Prius.
+    func displayConfiguration() {
+        print("Selected Toyota Prius Configuration:")
+        print("Model: \(model.rawValue)")
+        print("Color: \(color.rawValue)")
+ 
+        if !selectedPackages.isEmpty {
+            print("Selected Packages:")
+            for package in selectedPackages {
+                print("- \(package.rawValue)")
+            }
+        }
+ 
+        if !selectedAccessories.isEmpty {
+            print("Selected Accessories:")
+            for accessory in selectedAccessories {
+                print("- \(accessory.rawValue)")
+            }
+        }
+    }
+}
+ 
+// Example of using the ToyotaPriusConfiguration class:
+ 
+// Initialize the Toyota Prius configuration
+let priusConfig = ToyotaPriusConfiguration(model: .premium, color: .silver, packages: [.safety, .technology], accessories: [.floorMats, .wheelLocks, .cargoNet])
+ 
+// Display the selected configuration
+priusConfig.displayConfiguration()
